@@ -1,0 +1,33 @@
+.headContainer {
+    border: solid red;
+    width: 100%;
+    height: 20vh;
+}
+
+.instructionsContainer {
+    border: solid blue;
+    width: 100%;
+    height: 20vh;
+}
+
+.navContainer {
+    border: solid green;
+    width: 100%;
+    height: 10vh;
+
+}
+
+.formContainer {
+    border: solid purple;
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}
+
+.slamContainer {
+    border: solid yellow;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    width: 100%
+}

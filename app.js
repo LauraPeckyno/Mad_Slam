@@ -1,4 +1,4 @@
-document.getElementById('wordForm').addEventListener('submit', function(event) {
+document.getElementById('wordForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const adjective1 = document.getElementById('adjective1').value;
