@@ -8,7 +8,7 @@ body {
   }
 .headContainer {
     border: solid red;
-    border-radius: 25px;;
+    border-radius: 25px;
     width: 100%;
     height: 325px;
     background-size:cover;
@@ -17,12 +17,16 @@ body {
 
 .instructionsContainer {
     border: solid blue;
+    border-radius: 25px;
     width: 100%;
-    height: 20vh;
+    height: 60px;
 }
 
 .navContainer {
     border: solid green;
+    border-radius: 25px;
+    display:flex;
+    justify-content: space-around;
     width: 100%;
     height: 10vh;
 
@@ -30,15 +34,32 @@ body {
 
 .formContainer {
     border: solid purple;
+    border-radius: 25px;
     display: flex;
     justify-content: space-between;
+    padding: 25px;
     width: 100%
 }
 
 .slamContainer {
     border: solid yellow;
+    border-radius: 25px;
     height: 20vh;
     display: flex;
     justify-content: space-between;
     width: 100%
+}
+.moodSelect {
+    border: solid black;
+    background-color: chartreuse;
+    width: 125px;
+    border-radius: 15px;
+    height: 75px;
+}
+.styleSelect {
+    border: solid black;
+    background-color: chartreuse;
+    width: 125px;
+    border-radius: 15px;
+    height: 75px;
 }
