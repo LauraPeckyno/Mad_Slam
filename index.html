@@ -4,14 +4,37 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Mad SLAM!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+ 
+        <form id="wordForm">
+            <label for="adjective1">Adjective:</label>
+            <input type="text" id="adjective1" name="adjective1" required><br>
+    
+            <label for="noun1">Noun:</label>
+            <input type="text" id="noun1" name="noun1" required><br>
+    
+            <label for="verb1">Verb (use the ing version):</label>
+            <input type="text" id="verb1" name="verb1" required><br>
 
+            <label for="noun2">Another Noun:</label>
+            <input type="text" id="noun2" name="noun2" required><br>
+
+            <label for="verb2">Verb (with and s or es on the end):</label>
+            <input type="text" id="verb2" name="verb2" required><br>
+    
+            <button type="submit">Create Mad Slam!</button>
+        </form>
+    
+        <h2>test output</h2>
+        <div><p id="wordsOutput"></p></div>
+    
+    
         
-        <script src="" async defer></script>
+        <script src="app.js" async defer></script>
     </body>
 </html>
