@@ -8,8 +8,11 @@ body {
   }
 .headContainer {
     border: solid red;
+    border-radius: 25px;;
     width: 100%;
-    height: 20vh;
+    height: 325px;
+    background-size:cover;
+    background-image: url(https://live.staticflickr.com/65535/53911806092_8d6d40267d_k.jpg);
 }
 
 .instructionsContainer {
