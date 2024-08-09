@@ -1,0 +1,1 @@
+This will be my first attempt at a Madlibs style poetry game/generator. This README will be updated as I work through the project.
