@@ -9,22 +9,38 @@ body {
   }
 .headContainer {
     border-radius: 25px;
+    display:flex;
+    align-items:flex-end;
+    justify-content: flex-end;
     color: rgba(240, 248, 255, 0);
     box-shadow: 10px, 10px, black;
     padding: 15px;
     margin: 15px;
     width: 90%;
     height: 500px;
+
     background-size:cover;
     background-image: url(https://live.staticflickr.com/65535/53911806092_8d6d40267d_k.jpg);
 }
+p {
+    text-align: center;
+    border:solid chartreuse;
+    color:black;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 25px 25px;  
+}
 
 .instructionsContainer {
-    /* border: solid blue; */
+    border: solid blue;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     background-color: white;
     border-radius: 15px;
     color: rgb(0, 0, 0);
-    box-shadow: 10px, 10px, black;
     padding: 15px;
     margin: 15px;
     width: 90%;
@@ -43,7 +59,7 @@ body {
 
 }
 
-.formContainer {
+.haikuformContainer {
     border: solid purple;
     background-color: rgb(142, 195, 255);
     border-radius: 25px;
@@ -52,6 +68,40 @@ body {
     padding: 25px;
     width: 90%;
     text-align: left;
+    display: none;
+}
+.limerickformContainer {
+    border: solid purple;
+    background-color: rgb(142, 195, 255);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    width: 90%;
+    text-align: left;
+    display: none;
+}
+.iamformContainer {
+    border: solid purple;
+    background-color: rgb(142, 195, 255);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    width: 90%;
+    text-align: left;
+    display: none;
+}
+.natureformContainer {
+    border: solid purple;
+    background-color: rgb(142, 195, 255);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    width: 90%;
+    text-align: left;
+    display: none;
 }
 
 .slamContainer {
@@ -63,17 +113,49 @@ body {
     justify-content: space-between;
     width: 100%
 }
-.moodSelect {
+.haikuSelect {
     border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: chartreuse;
     width: 125px;
     border-radius: 15px;
     height: 50px;
 }
-.styleSelect {
+.iamSelect {
     border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: chartreuse;
     width: 125px;
     border-radius: 15px;
     height: 50px;
+}
+.limerickSelect {
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+    width: 125px;
+    border-radius: 15px;
+    height: 50px;
+}
+.natureSelect {
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+    width: 125px;
+    border-radius: 15px;
+    height: 50px;
+}
+#slamBtn {
+    cursor: url(http://www.pecknotes.com/handpoint.cur),auto;
+}
+#fistBtn {
+    cursor: url(http://www.pecknotes.com/handclench.cur),auto;
 }

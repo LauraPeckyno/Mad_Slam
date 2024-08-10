@@ -10,18 +10,25 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="headContainer">Play Slam it!</div>
-        <div class="instructionsContainer">provide some instructions here.</div>
-        <div class="navContainer">
-            <p>navbar to select the poem style and the
-                moods</p>
-            <div class="moodSelect"></div>
-            
-            <div class="styleSelect"></div>
-</div><p>will need to have this section swap out depending on the type of poem and the mood selected.</p>
+        <div class="headContainer">Play Slam it!<p><strong>Have you ever heard of SLAM
+            Poetry?</strong></p></div>
+            <p>A Poetry Slam is like a live word battle! Each participant creates a poem,
+                then performs it in front of an audience. The best words and
+                performances win the SLAM!</p>
+        <div class="instructionsContainer">
+
+            <h1>Try your hand at a SLAM now!</h1>
+                <div class="navContainer" id="slamBtn">
+                    <div class="haikuSelect" id="fistBtn">HAIKU</div>
+                    <div class="iamSelect" id="fistBtn">I AM</div>
+                    <div class="limerickSelect" id="fistBtn">LIMERICK</div>
+                    <div class="natureSelect" id="fistBtn">NATURE</div>
+                </div>
+            </div>
+
         <div class="formContainer">
             <h1> Word form</h1>
-            
+
             <form id="wordForm">
                 <label for="adjective1">Adjective:</label>
                 <input type="text" id="adjective1" name="adjective1"
@@ -39,7 +46,7 @@
                 <label for="verb2">Verb (with and s or es on the end):</label>
                 <input type="text" id="verb2" name="verb2" required><br>
 
-                <button type="submit">Slam it!</button>
+                <button type="submit" class="slamBtn">Slam it!</button>
             </form>
         </div>
         <div class="slamContainer">

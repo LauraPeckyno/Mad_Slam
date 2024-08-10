@@ -16,6 +16,7 @@ document.getElementById('wordForm').addEventListener('submit', function (event) 
     document.getElementById('wordsOutput').innerHTML = poem;
 });
 
+
 // poem styles: haiku, I am, free verse, limerick
 // moods: love, silly, nature, myself, ???
 // need templates for each
@@ -36,6 +37,7 @@ document.getElementById('wordForm').addEventListener('submit', function (event) 
 //      Verb-ing through the adjective noun
 //      Adjective noun sings
 //     
+//Haiku form: adjective, noun, ing verb. adjective, noun, adjective, noun
 
 // **Limerick Template**
 //      There once was a noun from place
@@ -43,7 +45,8 @@ document.getElementById('wordForm').addEventListener('submit', function (event) 
 //      The adjective noun
 //      Verb-ed around
 //      And left without a trace
-//     
+//
+//Limerick form: noun, place, verb(ed), adjective, noun, verb(ed)     
 
 // **Nature Poem Template**
 //      The adjective noun sways in the breeze,
@@ -51,23 +54,7 @@ document.getElementById('wordForm').addEventListener('submit', function (event) 
 //      With a noun in the sky,
 //      I watch it fly high,
 //      As the adjective sun sets with ease.
-//     
-
-// **Friendship Poem Template**
-//      A noun is like a adjective treasure,
-//      Bringing joy beyond any measure.
-//      With laughter and fun,
-//      We shine like the sun,
-//      In moments we always will treasure.
-//     
-
-// **Dream Poem Template**
-//      In my dreams, I see a noun,
-//      Dancing and twirling around town.
-//      With a adjective glow,
-//      It puts on a show,
-//      Making me smile, never a frown.
-//     
+//        
 
 // **Seasonal Poem Template**
 //      In the adjective summer, the noun blooms,
@@ -76,11 +63,3 @@ document.getElementById('wordForm').addEventListener('submit', function (event) 
 //      In the bright light of day,
 //      Enjoying the warmth that resumes.
 //     
-
-// **Adventure Poem Template**
-//      On a noun, we set off to explore,
-//      With a adjective map and tales of yore.
-//      We verb through the night,
-//      With stars shining bright,
-//      Seeking treasures on a distant shore.
-//    
