@@ -23,7 +23,6 @@ body {
     margin: 15px;
     width: 90%;
     height: 500px;
-
     background-size:cover;
     background-image: url(https://live.staticflickr.com/65535/53911806092_8d6d40267d_k.jpg);
 }
@@ -78,50 +77,6 @@ p {
 
 }
 
-.haikuformContainer {
-    border: solid purple;
-    background-color: rgb(142, 195, 255);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-    width: 90%;
-    text-align: left;
-    display: none;
-}
-.limerickformContainer {
-    border: solid purple;
-    background-color: rgb(142, 195, 255);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-    width: 90%;
-    text-align: left;
-    display: none;
-}
-.iamformContainer {
-    border: solid purple;
-    background-color: rgb(142, 195, 255);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-    width: 90%;
-    text-align: left;
-    display: none;
-}
-.natureformContainer {
-    border: solid purple;
-    background-color: rgb(142, 195, 255);
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-    width: 90%;
-    text-align: left;
-    display: none;
-}
 .dynamicForm {
     border: solid purple;
     background-color: rgb(142, 195, 255);
@@ -153,6 +108,19 @@ p {
     border-radius: 15px;
     height: 50px;
 }
+
+#haikuBtn:hover {
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: rgb(17, 154, 233);
+    width: 128px;
+    border-radius: 15px;
+    height: 52px;
+}
+
 #iamBtn {
     border: solid black;
     display: flex;
@@ -163,6 +131,19 @@ p {
     border-radius: 15px;
     height: 50px;
 }
+
+#iamBtn:hover {
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: rgb(17, 154, 233);
+    width: 128px;
+    border-radius: 15px;
+    height: 52px;
+}
+
 #limerickBtn {
     border: solid black;
     display: flex;
@@ -173,6 +154,19 @@ p {
     border-radius: 15px;
     height: 50px;
 }
+
+#limerickBtn:hover {
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: rgb(17, 154, 233);
+    width: 128px;
+    border-radius: 15px;
+    height: 52px;
+}
+
 #natureBtn {
     border: solid black;
     display: flex;
@@ -183,6 +177,18 @@ p {
     border-radius: 15px;
     height: 50px;
 }
+#natureBtn:hover {
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: rgb(17, 154, 233);
+    width: 128px;
+    border-radius: 15px;
+    height: 52px;
+}
+
 #slamBtn {
     cursor: url(http://www.pecknotes.com/handpoint.cur),auto;
 }
