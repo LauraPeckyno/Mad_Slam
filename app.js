@@ -15,3 +15,72 @@ document.getElementById('wordForm').addEventListener('submit', function (event) 
 
     document.getElementById('wordsOutput').innerHTML = poem;
 });
+
+// poem styles: haiku, I am, free verse, limerick
+// moods: love, silly, nature, myself, ???
+// need templates for each
+
+// **I am Template**
+//      I am a _ (2 words to describe self)
+//      I wonder _ (something you are curious about)
+//      I hear _ (a sound)
+//      I see _ (a sight)
+//      I want _ (something you want)
+//      I am _ (repeat of first line)
+// note: these need to be phrases rather than single words
+// addtl stanzas are I pretend, I feel, I touch, I worry, I try, I am / I understand, I say, I dream, I try, I hope, I am
+//
+
+// **Haiku Template**
+//      An adjective noun
+//      Verb-ing through the adjective noun
+//      Adjective noun sings
+//     
+
+// **Limerick Template**
+//      There once was a noun from place
+//      Who verb-ed with a funny face
+//      The adjective noun
+//      Verb-ed around
+//      And left without a trace
+//     
+
+// **Nature Poem Template**
+//      The adjective noun sways in the breeze,
+//      Verb-ing softly among the trees.
+//      With a noun in the sky,
+//      I watch it fly high,
+//      As the adjective sun sets with ease.
+//     
+
+// **Friendship Poem Template**
+//      A noun is like a adjective treasure,
+//      Bringing joy beyond any measure.
+//      With laughter and fun,
+//      We shine like the sun,
+//      In moments we always will treasure.
+//     
+
+// **Dream Poem Template**
+//      In my dreams, I see a noun,
+//      Dancing and twirling around town.
+//      With a adjective glow,
+//      It puts on a show,
+//      Making me smile, never a frown.
+//     
+
+// **Seasonal Poem Template**
+//      In the adjective summer, the noun blooms,
+//      While the adjective sun chases away glooms.
+//      We verb and we play,
+//      In the bright light of day,
+//      Enjoying the warmth that resumes.
+//     
+
+// **Adventure Poem Template**
+//      On a noun, we set off to explore,
+//      With a adjective map and tales of yore.
+//      We verb through the night,
+//      With stars shining bright,
+//      Seeking treasures on a distant shore.
+//    
