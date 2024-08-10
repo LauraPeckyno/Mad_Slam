@@ -10,50 +10,31 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="headContainer">Play Slam it!<p><strong>Have you ever heard of SLAM
+        <div class="outer">
+        <div class="headContainer">Play Slam it!<p id="intro"><strong>Have you ever heard of SLAM
             Poetry?</strong></p></div>
             <p>A Poetry Slam is like a live word battle! Each participant creates a poem,
                 then performs it in front of an audience. The best words and
                 performances win the SLAM!</p>
-        <div class="instructionsContainer">
+        <div class="instructionsContainer" id="slamBtn">
 
             <h1>Try your hand at a SLAM now!</h1>
-                <div class="navContainer" id="slamBtn">
-                    <div class="haikuSelect" id="fistBtn">HAIKU</div>
-                    <div class="iamSelect" id="fistBtn">I AM</div>
-                    <div class="limerickSelect" id="fistBtn">LIMERICK</div>
-                    <div class="natureSelect" id="fistBtn">NATURE</div>
+                <div class="navContainer">
+                    <div id="haikuBtn" class="fistBtn">HAIKU</div>
+                    <div id="iamBtn" class="fistBtn">I AM</div>
+                    <div id="limerickBtn" class="fistBtn">LIMERICK</div>
+                    <div id="natureBtn" class="fistBtn">NATURE</div>
                 </div>
             </div>
-
         <div class="formContainer">
-            <h1> Word form</h1>
-
-            <form id="wordForm">
-                <label for="adjective1">Adjective:</label>
-                <input type="text" id="adjective1" name="adjective1"
-                    required><br>
-
-                <label for="noun1">Noun:</label>
-                <input type="text" id="noun1" name="noun1" required><br>
-
-                <label for="verb1">Verb (use the ing version):</label>
-                <input type="text" id="verb1" name="verb1" required><br>
-
-                <label for="noun2">Another Noun:</label>
-                <input type="text" id="noun2" name="noun2" required><br>
-
-                <label for="verb2">Verb (with and s or es on the end):</label>
-                <input type="text" id="verb2" name="verb2" required><br>
-
-                <button type="submit" class="slamBtn">Slam it!</button>
-            </form>
+            form container
+    <form id="dynamicForm"></form>
         </div>
         <div class="slamContainer">
             <h2>test output</h2>
-            <div><p id="wordsOutput"></p></div>
+            <div class="formValues"></div>
         </div>
-
+</div>
         <script src="app.js" async defer></script>
     </body>
 </html>
