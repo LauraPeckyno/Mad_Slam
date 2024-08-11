@@ -77,7 +77,7 @@ p {
 
 }
 
-.form-container {
+#form-Container {
    
     display: flex;
     justify-content: space-between;
@@ -99,7 +99,7 @@ p {
     display: none;
 }
 
-.slamContainer {
+#slamContainer {
     border: solid yellow;
     background-color: white;
     border-radius: 25px;
@@ -201,11 +201,8 @@ p {
     height: 52px;
 }
 
-#slamBtn {
-    cursor: url(http://www.pecknotes.com/handpoint.cur),auto;
-}
 .fistBtn {
-    cursor: url(http://www.pecknotes.com/handclench.cur),auto;
+    cursor: url(http://www.pecknotes.com/handclench2.cur),auto;
 }
 
 input {
@@ -235,7 +232,7 @@ button:hover {
     border-radius: 15px;
     height: 52px;
     margin: 5px;
-    cursor: url(http://www.pecknotes.com/handclench.cur),auto;
+    cursor: url(http://www.pecknotes.com/handclench2.cur),auto;
 }
   
 label {
@@ -244,3 +241,10 @@ label {
     padding: 5px 10px;
     margin: 8px;
 }
+
+.permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

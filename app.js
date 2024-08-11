@@ -1,9 +1,11 @@
+document.body.style.cursor = "url(http://www.pecknotes.com/handpoint2.cur), pointer";
 const haikuBtn = document.getElementById("haikuBtn");
 const limerickBtn = document.getElementById("limerickBtn");
 const natureBtn = document.getElementById("natureBtn");
 const iamBtn = document.getElementById("iamBtn");
 
 var haikuFields = [
+  { poem: "HAIKU"},
     { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
   { label: "Enter an adjective that describes that noun", 
     type: "text",
@@ -17,6 +19,7 @@ var haikuFields = [
 //Haiku form: adjective, noun, ing verb. adjective, noun, adjective, noun
 
 var limerickFields = [
+  {poem: "LIMERICK"},
     { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
     { label: "Enter an adjective describing your noun",  type: "text", placeholder: "Adjective", name: "adjective", minlength: 2, required: true },
     { label: "Enter a place (a city or country would work)", 
@@ -29,6 +32,7 @@ var limerickFields = [
 ];
 
 var natureFields = [
+  {poem: "NATURE"},
     { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
   { label: "Enter an adjective that describes that noun", 
     type: "text",
@@ -42,7 +46,8 @@ var natureFields = [
 //Nature form: noun, adjective, verb (ing), noun (something that flys), adjective (something that describes the sun)
 
 var iamFields = [
-    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+  {poem: "I AM..."},
+    { label: "Enter two words about yourself", type: "text", placeholder: "Two words about me", pattern: "^\w+\s\w+$", name: "2words", minlength: 3, required: true },
   { label: "Enter an adjective that describes that noun", 
     type: "text",
     placeholder: "Adjective that describes the noun",
@@ -76,51 +81,56 @@ buttons.forEach((button) => {
 });
 
 function generateform() {
-    const form = document.getElementById("dynamicForm");
-    form.innerHTML = ""; // Clear any existing content
-  
-    if (selectedFields) {
-      selectedFields.forEach((field) => {
-        const label = document.createElement("label");
-        label.textContent = field.label;
-        label.setAttribute("for", field.name);
-        const input = document.createElement("input");
-        input.setAttribute("type", field.type);
-        input.setAttribute("placeholder", field.placeholder);
-        input.setAttribute("name", field.name);
-        input.setAttribute("id", field.name); // add an id to the input field
-        if (field.required) {
-          input.setAttribute("required", "required");
-        }
-        if (field.minlength) {
-          input.setAttribute("minlength", field.minlength);
-        }
-        if (field.pattern) {
-            input.setAttribute("pattern", field.pattern);
-          }
-        form.appendChild(label); // add the label
-        form.appendChild(document.createElement("br"));
-        form.appendChild(input); // add the input
-        form.appendChild(document.createElement("br"));
-      });
-  
-      const submitButton = document.createElement("button");
-      submitButton.setAttribute("type", "submit"); // creating a submit button
-      submitButton.textContent = "Submit";
-      form.appendChild(submitButton);
-  
-      // add an event listener to handle form submission
-      form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the default form submission
-        const formData = new FormData(form);
-        const formValues = Object.fromEntries(formData.entries());
-        // document.getElementById('wordsOutput').innerHTML = formValues; 
-        console.log(formValues); 
-      });
+  const form = document.getElementById("dynamicForm");
+  form.innerHTML = ""; // Clear any existing content
+  const formContainer = document.getElementById("form-Container");
+  formContainer.innerHTML = ""; // Clear any existing content
 
-    }
+  if (selectedFields) {
+    const poem = document.createElement("h1");
+    poem.textContent = selectedFields[0].poem;
+    poem.setAttribute("class", "permanent-marker-regular");
+    formContainer.appendChild(poem);
+
+    selectedFields.slice(1).forEach((field) => {
+      const label = document.createElement("label");
+      label.textContent = field.label;
+      label.setAttribute("for", field.name);
+      const input = document.createElement("input");
+      input.setAttribute("type", field.type);
+      input.setAttribute("placeholder", field.placeholder);
+      input.setAttribute("name", field.name);
+      input.setAttribute("id", field.name); // add an id to the input field
+      if (field.required) {
+        input.setAttribute("required", "required");
+      }
+      if (field.minlength) {
+        input.setAttribute("minlength", field.minlength);
+      }
+      if (field.pattern) {
+        input.setAttribute("pattern", field.pattern);
+      }
+      formContainer.appendChild(label); // add the label
+      formContainer.appendChild(document.createElement("br"));
+      formContainer.appendChild(input); // add the input
+      formContainer.appendChild(document.createElement("br"));
+    });
+
+    const submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit"); // creating a submit button
+    submitButton.textContent = "Submit";
+    formContainer.appendChild(submitButton);
+
+    // add an event listener to handle form submission
+    formContainer.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
+      const formData = new FormData(form);
+      const formValues = Object.fromEntries(formData.entries());
+      // document.getElementById('wordsOutput').innerHTML = formValues; 
+      console.log(formValues); 
+    });
   }
-
+}
 
 // **Haiku Template**
 //      An adjective noun
@@ -172,4 +182,3 @@ function generateform() {
 // note: these need to be phrases rather than single words
 // addtl stanzas are I pretend, I feel, I touch, I worry, I try, I am / I understand, I say, I dream, I try, I hope, I am
 //
-
