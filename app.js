@@ -277,27 +277,30 @@ function generateform() {
         slamContainer.style.display = "block"; // making the slam container visible
         formContainer.style.display = "none"; // making the form container invisible
 
-        // Remove any existing print button
+        // Remove any existing print button (first child)
         while (printBtn.firstChild) {
           printBtn.removeChild(printBtn.firstChild);
         }
-
+        
+        // creating a fresh print button
         const printButton = document.createElement("button");
         printButton.textContent = "Print!";
-        printButton.addEventListener("click", function() {
+        printButton.addEventListener("click", function() { // event listener for the print button click event
           window.print();
         });
 
+        // adding the print button to the correct div below the output. note: I tried inside the output but had trouble styling it.
         printBtn.appendChild(printButton);
-        printBtn.style.display = "block";
+        printBtn.style.display = "block";  // making the print button visible
     });
 
-    formContainer.appendChild(form);
-    formContainer.style.display = "block";
-    slamContainer.style.display = "none";
+    formContainer.appendChild(form); // sending everything from the form event listener to the form container
+    formContainer.style.display = "block";  // making the form container visible
+    slamContainer.style.display = "none";  // making sure the slam container (the output) is not visible
     printBtn.style.display = "none"; // Hide the print button initially
   }
 }
+
 /////////////////////////////////////////////////
 ///// notes for the poem templates /////////////
 
