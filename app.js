@@ -228,19 +228,19 @@ function generateform() {
         form.appendChild(document.createElement("br")); // line breaks
     });
 
-    const submitButton = document.createElement("button");
+    const submitButton = document.createElement("button"); // creating the submit button
     submitButton.setAttribute("type", "submit");
     submitButton.textContent = "Submit";
-    form.appendChild(submitButton);
+    form.appendChild(submitButton); // appending the submit button to the form
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    form.addEventListener("submit", function (event) {  // event listener for the submit button
+        event.preventDefault(); // prevent default on the submit button
 
-        const formData = new FormData(form);
-        const formValues = Object.fromEntries(formData.entries());
+        const formData = new FormData(form);  // collecting the form data
+        const formValues = Object.fromEntries(formData.entries());  //I had to look this one up and ask for help. This returns the key value pairs data and will convert the data to a JS object. the data is then stored in the formValues variable.
 
-        let poemOutput = "";
-        if (poemType === "HAIKU") {
+        let poemOutput = ""; // creating the peom output variable
+        if (poemType === "HAIKU") {  // checking to see which output type it is
             poemOutput = `
               An ${formValues.adjective1} ${formValues.noun1} <br>
               ${formValues.verb1} through the ${formValues.adjective2} ${formValues.noun2} <br>
