@@ -235,6 +235,7 @@ button:hover {
     border-radius: 15px;
     height: 52px;
     margin: 5px;
+    cursor: url(http://www.pecknotes.com/handclench.cur),auto;
 }
   
 label {

@@ -10,24 +10,36 @@ var haikuFields = [
     placeholder: "Adjective that describes the noun",
     name: "adjective1", minlength: 2, required: true 
   },
-  { label: "Enter a verb ending in ...ing",  pattern: "\b\w+ing\b", type: "text", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
+  { label: "Enter a verb ending in ...ing",  pattern: ".*ing$", type: "text", title: "Please enter a verb ending in ...ing", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
   { label: "Enter a new noun",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
-  { label: "Enter a verb ending in ...s",  pattern: "\b\w+s\b", type: "text", placeholder: "Verb ending in ...s", name: "verb2", minlength: 2, required: true },
+  { label: "Enter a verb ending in ...s",  pattern: ".*s$", type: "text", placeholder: "Verb ending in ...s", name: "verb2", minlength: 2, required: true },
 ];
+//Haiku form: adjective, noun, ing verb. adjective, noun, adjective, noun
 
 var limerickFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter an adjective", name: "adjective", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter a verb", name: "verb", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter a phrase", name: "phrase", minlength: 2, required: true },
+    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+    { label: "Enter an adjective describing your noun",  type: "text", placeholder: "Adjective", name: "adjective", minlength: 2, required: true },
+    { label: "Enter a place (a city or country would work)", 
+    type: "text",
+    placeholder: "Place",
+    name: "place1", minlength: 2, required: true 
+  },
+  { label: "Enter a verb ending in ...ed",  pattern: ".*ed$", type: "text", title: "Please enter a verb ending in ...ed", placeholder: "Verb ending in ...ed", name: "verb1", minlength: 2, required: true },
+ //Limerick form: noun, place, verb(ed), adjective
 ];
 
 var natureFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter an adjective", name: "adjective", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter a verb", name: "verb", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter a phrase", name: "phrase", minlength: 2, required: true },
+    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+  { label: "Enter an adjective that describes that noun", 
+    type: "text",
+    placeholder: "Adjective that describes the noun",
+    name: "adjective1", minlength: 2, required: true 
+  },
+  { label: "Enter a verb ending in ...ing",  pattern: ".*ing$", type: "text", title: "Please enter a verb ending in ...ing", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
+  { label: "Enter a new noun (something you'd see in the sky)",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
+  { label: "Enter an adjective that relates to the sun",  type: "text", placeholder: "Adjective", name: "adjective2", minlength: 2, required: true },
 ];
+//Nature form: noun, adjective, verb (ing), noun (something that flys), adjective (something that describes the sun)
 
 var iamFields = [
   { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
@@ -91,7 +103,7 @@ function generateform() {
         event.preventDefault(); // Prevent the default form submission
         const formData = new FormData(form);
         const formValues = Object.fromEntries(formData.entries());
-        document.getElementById('wordsOutput').innerHTML = formValues; // fix the typo here
+        document.getElementById('wordsOutput').innerHTML = formValues; 
         console.log(formValues); 
       });
     }
@@ -131,7 +143,7 @@ function generateform() {
 //      With a noun in the sky,
 //      I watch it fly high,
 //      As the adjective sun sets with ease.
-//
+//Nature form: noun, adjective, verb (ing), noun (something that flys), adjective (something that describes the sun)
 
     // const iamPoem = `
     // The ${adjective1} ${noun1}<br>
