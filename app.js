@@ -284,7 +284,7 @@ function generateform() {
         
         // creating a fresh print button
         const printButton = document.createElement("button");
-        printButton.textContent = "Print!";
+        printButton.textContent = "PRINT!";
         printButton.addEventListener("click", function() { // event listener for the print button click event
           window.print();
         });

@@ -110,7 +110,7 @@ p {
 } */
 
 #slamContainer {
-    border: solid rgb(255, 0, 0);
+    border: solid rgb(209, 87, 16);
     background-color: white;
     border-radius: 25px;
     display: flex;
@@ -227,9 +227,9 @@ input {
 button {
     border: solid rgba(0, 0, 0, 0.315);
     background-color: rgb(255, 255, 255);
-    width: 125px;
+    width: 150px;
     border-radius: 15px;
-    height: 50px;
+    height: 60px;
     color: black;
     font-size: 25px;
     margin: 5px;
@@ -238,9 +238,9 @@ button:hover {
     border: solid rgba(0, 0, 0, 0.315);
     color:black;
     background-color: chartreuse;
-    width: 128px;
+    width: 155px;
     border-radius: 15px;
-    height: 52px;
+    height: 70px;
     margin: 5px;
     cursor: url(http://www.pecknotes.com/handclench2.cur),auto;
 }
@@ -260,6 +260,6 @@ label {
   
 #printBtn {
     color:black;
-    background-color: white;
+
     display:none;
   }
