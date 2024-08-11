@@ -1,7 +1,6 @@
 document.body.style.cursor = "url(http://www.pecknotes.com/handpoint2.cur), pointer"; 
 /// sets a custom cursor for the page (yep, I stole and image and made a cursor. yep, that's mickey's hand)
 
-
 // declaring constants for the buttons
 const haikuBtn = document.getElementById("haikuBtn");
 const limerickBtn = document.getElementById("limerickBtn");
@@ -136,7 +135,7 @@ var iamFields = [
   { label: "Enter two words about yourself", 
     type: "text", 
     placeholder: "Two words about me", 
-    pattern: "^\w+\s\w+$", 
+    // pattern: "^\w+\s\w+$", 
     name: "twowords", 
     minlength: 3, 
     required: true },
@@ -144,7 +143,7 @@ var iamFields = [
     type: "text",
     placeholder: "I wonder... (up to 6 words)",
     name: "iwonder", 
-    pattern: "^(\b\w+\b\s*){0,6}$", 
+    // pattern: "^(\b\w+\b\s*){1,6}$", 
     minlength: 2, 
     required: true },
   { label: "Enter a noun (something you hear)",  
@@ -172,41 +171,39 @@ var iamFields = [
 
 // the template literals for the poem outputs
 // nature
-const naturePoem = `
-The ${adjective1} ${noun1} sways in the breeze, <br>
-${verb1} softly among the trees. <br>
-With a ${noun2} in the sky, <br>
-I watch it fly high, <br>
-as the ${adjective2} sun sets with ease.
-`; 
+// const naturePoem = `
+// The ${adjective1} ${noun1} sways in the breeze, <br>
+// ${verb1} softly among the trees. <br>
+// With a ${noun2} in the sky, <br>
+// I watch it fly high, <br>
+// as the ${adjective2} sun sets with ease.
+// `; 
 
-// I am...
-const iamPoem = `
-I am ${twowords}. <br>
-I wonder ${iwonder}. <br>
-I hear ${sound}. <br>
-I see ${isee}. <br>
-I want ${iwant}. <br>
-I am ${twowords}.
-`;
+// // I am...
+// const iamPoem = `
+// I am ${twowords}. <br>
+// I wonder ${iwonder}. <br>
+// I hear ${sound}. <br>
+// I see ${isee}. <br>
+// I want ${iwant}. <br>
+// I am ${twowords}.
+// `;
 
-// limerick
-const limerickPoem = `
-There once was a ${noun1} from ${place1} <br>
-Who ${verb1} with a funny face <br>
-The ${adjective} ${noun1} <br>
-  ${verb1} around <br>
-And left without a trace.
-`;
+// // limerick
+// const limerickPoem = `
+// There once was a ${noun1} from ${place1} <br>
+// Who ${verb1} with a funny face <br>
+// The ${adjective} ${noun1} <br>
+//   ${verb1} around <br>
+// And left without a trace.
+// `;
 
-// haiku
-const haikuPoem = `
-An ${adjective1} ${noun1} <br>
-${verb1} through the ${adjective2} ${noun2} <br>
-the ${adjective1} ${noun1} ${verb2}
-`;
-
-var selectedFields; // Variable to store the selected arrays
+// // haiku
+// const haikuPoem = `
+// An ${adjective1} ${noun1} <br>
+// ${verb1} through the ${adjective2} ${noun2} <br>
+// the ${adjective1} ${noun1} ${verb2}
+// `;
 
 // attaching the poem style button ids to the button constants
 const buttons = [
@@ -215,6 +212,8 @@ const buttons = [
   { id: "natureBtn", fields: natureFields },
   { id: "iamBtn", fields: iamFields },
 ];
+
+let selectedFields; // Variable to store the selected arrays
 
 buttons.forEach((button) => {   // event listeners for the poem style buttons
   document.getElementById(button.id).addEventListener("click", function () {
@@ -233,79 +232,89 @@ function generateform() {
 
   const slamContainer = document.getElementById("slamContainer");
   slamContainer.innerHTML = ""; // Clear any existing content
-
   if (selectedFields) {
-      const poem = document.createElement("h1"); // creating a "poem type" title for the form
-      poem.textContent = selectedFields[0].poem;
-      poem.setAttribute("class", "permanent-marker-regular"); // sets the font style for the h1
-      formContainer.appendChild(poem); // adds the form type as an h1 element to the form container
-      formContainer.style.display = "block"; // showing the form container
-      slamContainer.style.display = "none"; // hiding the output container
+    const poemType = selectedFields[0].poem;
 
-      selectedFields.slice(1).forEach((field) => { // slice out the poem type value
-          const label = document.createElement("label");
-          label.textContent = field.label;
-          label.setAttribute("for", field.name);
+    const poemTitle = document.createElement("h1");
+    poemTitle.textContent = poemType;
+    poemTitle.className = "permanent-marker-regular";
+    formContainer.appendChild(poemTitle);
 
-          const input = document.createElement("input");
-          input.setAttribute("type", field.type);
-          input.setAttribute("placeholder", field.placeholder);
-          input.setAttribute("name", field.name);
-          input.setAttribute("id", field.name); // add an id to the input field
+    selectedFields.slice(1).forEach((field) => {
+        const label = document.createElement("label");
+        label.textContent = field.label;
+        label.setAttribute("for", field.name);
 
-          if (field.required) {
-              input.setAttribute("required", "required");
-          }
-          if (field.minlength) {
-              input.setAttribute("minlength", field.minlength);
-          }
-          if (field.pattern) {
-              input.setAttribute("pattern", field.pattern);
-          }
+        const input = document.createElement("input");
+        input.setAttribute("type", field.type);
+        input.setAttribute("placeholder", field.placeholder);
+        input.setAttribute("name", field.name);
+        input.id = field.name;
 
-          form.appendChild(label); // add the label to the form
-          form.appendChild(document.createElement("br"));
-          form.appendChild(input); // add the input to the form
-          form.appendChild(document.createElement("br"));
-      });
+        if (field.required) input.required = true;
+        if (field.minlength) input.minLength = field.minlength;
+        if (field.pattern) input.pattern = field.pattern;
 
-      const submitButton = document.createElement("button");
-      submitButton.setAttribute("type", "submit"); // creating a submit button
-      submitButton.textContent = "Submit";
-      form.appendChild(submitButton);
+        form.appendChild(label);
+        form.appendChild(document.createElement("br"));
+        form.appendChild(input);
+        form.appendChild(document.createElement("br"));
+    });
 
-      // add an event listener to handle form submission
-      form.addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent the default form submission
-          const formData = new FormData(form);
-          const formValues = Object.fromEntries(formData.entries());
+    const submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.textContent = "Submit";
+    form.appendChild(submitButton);
 
-          // Create a div to hold the output
-          const outputDiv = document.createElement("div");
-          // Add the poem text as an h1
-          const outputH1 = document.createElement("h1");
-          outputH1.textContent = poem.textContent;
-          outputH1.setAttribute("class", "permanent-marker-regular");
-          outputDiv.appendChild(outputH1);
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-          // Add the form values as paragraphs
-          Object.keys(formValues).forEach((key) => {
-              const paragraph = document.createElement("p");
-              paragraph.textContent = `${key}: ${formValues[key]}`;
-              outputDiv.appendChild(paragraph);
-          });
+        const formData = new FormData(form);
+        const formValues = Object.fromEntries(formData.entries());
 
-          // Clear the slam container and append the output
-          slamContainer.innerHTML = "";
-          slamContainer.appendChild(outputDiv);
+        let poemOutput = "";
+        if (poemType === "HAIKU") {
+            poemOutput = `
+              An ${formValues.adjective1} ${formValues.noun1} <br>
+              ${formValues.verb1} through the ${formValues.adjective2} ${formValues.noun2} <br>
+              the ${formValues.adjective1} ${formValues.noun1} ${formValues.verb2}
+            `;
+        } else if (poemType === "LIMERICK") {
+            poemOutput = `
+              There once was a ${formValues.noun1} from ${formValues.place1} <br>
+              Who ${formValues.verb1} with a funny face <br>
+              The ${formValues.adjective} ${formValues.noun1} <br>
+              ${formValues.verb1} around <br>
+              And left without a trace.
+            `;
+        } else if (poemType === "NATURE") {
+            poemOutput = `
+              The ${formValues.adjective1} ${formValues.noun1} sways in the breeze, <br>
+              ${formValues.verb1} softly among the trees. <br>
+              With a ${formValues.noun2} in the sky, <br>
+              I watch it fly high, <br>
+              as the ${formValues.adjective2} sun sets with ease.
+            `;
+        } else if (poemType === "I AM...") {
+            poemOutput = `
+              I am ${formValues.twowords}. <br>
+              I wonder ${formValues.iwonder}. <br>
+              I hear ${formValues.sound}. <br>
+              I see ${formValues.isee}. <br>
+              I want ${formValues.iwant}. <br>
+              I am ${formValues.twowords}.
+            `;
+        }
 
-          // Show the slam container and hide the form container
-          slamContainer.style.display = "block";
-          formContainer.style.display = "none";
-      });
+        slamContainer.innerHTML = poemOutput;
+        slamContainer.style.display = "block";
+        formContainer.style.display = "none";
+    });
 
-      formContainer.appendChild(form); // append the form to the form container
-  }
+    formContainer.appendChild(form);
+    formContainer.style.display = "block";
+    slamContainer.style.display = "none";
+}
 }
 
 

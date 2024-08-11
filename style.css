@@ -110,13 +110,13 @@ p {
 } */
 
 #slamContainer {
-    border: solid yellow;
+    border: solid rgb(255, 0, 0);
     background-color: white;
     border-radius: 25px;
-    height: 20vh;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
+    padding: 25px;
     display:none;
 }
 
