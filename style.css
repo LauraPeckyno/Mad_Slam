@@ -258,3 +258,7 @@ label {
     font-style: normal;
   }
   
+  #printBtn {
+    color:black;
+    background-color: chartreuse;
+  }

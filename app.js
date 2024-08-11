@@ -1,4 +1,4 @@
-document.body.style.cursor = "url(http://www.pecknotes.com/handpoint2.cur), pointer"; 
+document.body.style.cursor = "url(https://www.pecknotes.com/handpoint2.cur), pointer"; 
 /// sets a custom cursor for the page (yep, I stole and image and made a cursor. yep, that's mickey's hand)
 
 // declaring constants for the buttons
@@ -169,42 +169,6 @@ var iamFields = [
     required: true },
 ];
 
-// the template literals for the poem outputs
-// nature
-// const naturePoem = `
-// The ${adjective1} ${noun1} sways in the breeze, <br>
-// ${verb1} softly among the trees. <br>
-// With a ${noun2} in the sky, <br>
-// I watch it fly high, <br>
-// as the ${adjective2} sun sets with ease.
-// `; 
-
-// // I am...
-// const iamPoem = `
-// I am ${twowords}. <br>
-// I wonder ${iwonder}. <br>
-// I hear ${sound}. <br>
-// I see ${isee}. <br>
-// I want ${iwant}. <br>
-// I am ${twowords}.
-// `;
-
-// // limerick
-// const limerickPoem = `
-// There once was a ${noun1} from ${place1} <br>
-// Who ${verb1} with a funny face <br>
-// The ${adjective} ${noun1} <br>
-//   ${verb1} around <br>
-// And left without a trace.
-// `;
-
-// // haiku
-// const haikuPoem = `
-// An ${adjective1} ${noun1} <br>
-// ${verb1} through the ${adjective2} ${noun2} <br>
-// the ${adjective1} ${noun1} ${verb2}
-// `;
-
 // attaching the poem style button ids to the button constants
 const buttons = [
   { id: "haikuBtn", fields: haikuFields },
@@ -232,6 +196,10 @@ function generateform() {
 
   const slamContainer = document.getElementById("slamContainer");
   slamContainer.innerHTML = ""; // Clear any existing content
+
+  const printBtn = document.getElementById("printBtn");
+  printBtn.innerHTML = ""; // Clear any existing content
+
   if (selectedFields) {
     const poemType = selectedFields[0].poem;
 
@@ -309,14 +277,21 @@ function generateform() {
         slamContainer.innerHTML = poemOutput;
         slamContainer.style.display = "block";
         formContainer.style.display = "none";
+
     });
 
+    const printButton = document.createElement("button");
+    printButton.textContent = "Print SLAM!";
+    printButton.addEventListener("click", function() {
+      window.print();
+    });
+
+    printBtn.appendChild(printButton);
     formContainer.appendChild(form);
     formContainer.style.display = "block";
     slamContainer.style.display = "none";
+  }
 }
-}
-
 
 /////////////////////////////////////////////////
 ///// notes for the poem templates /////////////
@@ -367,3 +342,38 @@ function generateform() {
 // note: these need to be phrases rather than single words
 // addtl stanzas are I pretend, I feel, I touch, I worry, I try, I am / I understand, I say, I dream, I try, I hope, I am
 //
+// the template literals for the poem outputs
+// nature
+// const naturePoem = `
+// The ${adjective1} ${noun1} sways in the breeze, <br>
+// ${verb1} softly among the trees. <br>
+// With a ${noun2} in the sky, <br>
+// I watch it fly high, <br>
+// as the ${adjective2} sun sets with ease.
+// `; 
+
+// // I am...
+// const iamPoem = `
+// I am ${twowords}. <br>
+// I wonder ${iwonder}. <br>
+// I hear ${sound}. <br>
+// I see ${isee}. <br>
+// I want ${iwant}. <br>
+// I am ${twowords}.
+// `;
+
+// // limerick
+// const limerickPoem = `
+// There once was a ${noun1} from ${place1} <br>
+// Who ${verb1} with a funny face <br>
+// The ${adjective} ${noun1} <br>
+//   ${verb1} around <br>
+// And left without a trace.
+// `;
+
+// // haiku
+// const haikuPoem = `
+// An ${adjective1} ${noun1} <br>
+// ${verb1} through the ${adjective2} ${noun2} <br>
+// the ${adjective1} ${noun1} ${verb2}
+// `;
