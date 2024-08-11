@@ -278,6 +278,11 @@ function generateform() {
         slamContainer.style.display = "block";
         formContainer.style.display = "none";
 
+        // Remove any existing print button
+        while (printBtn.firstChild) {
+          printBtn.removeChild(printBtn.firstChild);
+        }
+
         const printButton = document.createElement("button");
         printButton.textContent = "Print!";
         printButton.addEventListener("click", function() {
@@ -294,7 +299,6 @@ function generateform() {
     printBtn.style.display = "none"; // Hide the print button initially
   }
 }
-
 /////////////////////////////////////////////////
 ///// notes for the poem templates /////////////
 
