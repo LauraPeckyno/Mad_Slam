@@ -201,32 +201,31 @@ function generateform() {
   printBtn.innerHTML = ""; // Clear any existing content
 
   if (selectedFields) {
-    const poemType = selectedFields[0].poem;
-
-    const poemTitle = document.createElement("h1");
+    const poemType = selectedFields[0].poem; //getting the poem type from the array
+    const poemTitle = document.createElement("h1"); // creating an h1 to put the poem type abve the form fields
     poemTitle.textContent = poemType;
-    poemTitle.className = "permanent-marker-regular";
-    formContainer.appendChild(poemTitle);
+    poemTitle.className = "permanent-marker-regular"; // styling the h1 title
+    formContainer.appendChild(poemTitle); //appending the title to the form container
 
-    selectedFields.slice(1).forEach((field) => {
-        const label = document.createElement("label");
+    selectedFields.slice(1).forEach((field) => {  // I realized I needed to remove the poem type from this or it would end up as a form field
+        const label = document.createElement("label"); // so I've created a new array without the first item
         label.textContent = field.label;
         label.setAttribute("for", field.name);
 
-        const input = document.createElement("input");
+        const input = document.createElement("input"); // getting the form fields from the arrays
         input.setAttribute("type", field.type);
         input.setAttribute("placeholder", field.placeholder);
         input.setAttribute("name", field.name);
         input.id = field.name;
 
-        if (field.required) input.required = true;
+        if (field.required) input.required = true; // some simple form verifications (note: some didn't work and I've commented those out)
         if (field.minlength) input.minLength = field.minlength;
         if (field.pattern) input.pattern = field.pattern;
 
-        form.appendChild(label);
-        form.appendChild(document.createElement("br"));
-        form.appendChild(input);
-        form.appendChild(document.createElement("br"));
+        form.appendChild(label); // appending the form input labels
+        form.appendChild(document.createElement("br"));  // line breaks to make this legible
+        form.appendChild(input);  // appending the form input fields themselves
+        form.appendChild(document.createElement("br")); // line breaks
     });
 
     const submitButton = document.createElement("button");
