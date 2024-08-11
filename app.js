@@ -246,7 +246,7 @@ function generateform() {
               ${formValues.verb1} through the ${formValues.adjective2} ${formValues.noun2} <br>
               the ${formValues.adjective1} ${formValues.noun1} ${formValues.verb2}
             `;
-        } else if (poemType === "LIMERICK") {
+        } else if (poemType === "LIMERICK") { // once the poem style is matched, the values are run into a template literal
             poemOutput = `
               There once was a ${formValues.noun1} from ${formValues.place1} <br>
               Who ${formValues.verb1} with a funny face <br>
@@ -254,7 +254,7 @@ function generateform() {
               ${formValues.verb1} around <br>
               And left without a trace.
             `;
-        } else if (poemType === "NATURE") {
+        } else if (poemType === "NATURE") { // I was originally trying to do this the same way I did the form, but it just never worked right and I ran out of time.
             poemOutput = `
               The ${formValues.adjective1} ${formValues.noun1} sways in the breeze, <br>
               ${formValues.verb1} softly among the trees. <br>
@@ -262,7 +262,7 @@ function generateform() {
               I watch it fly high, <br>
               as the ${formValues.adjective2} sun sets with ease.
             `;
-        } else if (poemType === "I AM...") {
+        } else if (poemType === "I AM...") {  // but this seems to work!
             poemOutput = `
               I am ${formValues.twowords}. <br>
               I wonder ${formValues.iwonder}. <br>
@@ -273,9 +273,9 @@ function generateform() {
             `;
         }
 
-        slamContainer.innerHTML = poemOutput;
-        slamContainer.style.display = "block";
-        formContainer.style.display = "none";
+        slamContainer.innerHTML = poemOutput;  // sending the poem output to the slam container as inn HTML
+        slamContainer.style.display = "block"; // making the slam container visible
+        formContainer.style.display = "none"; // making the form container invisible
 
         // Remove any existing print button
         while (printBtn.firstChild) {
