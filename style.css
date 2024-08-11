@@ -214,6 +214,7 @@ input {
     padding: 5px 10px;
     border: solid rgba(0, 0, 0, 0.253);
     border-radius: 5px;
+    margin: 12px;
   }
 
 button {
@@ -236,3 +237,9 @@ button:hover {
     margin: 5px;
 }
   
+label {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 8px;
+}

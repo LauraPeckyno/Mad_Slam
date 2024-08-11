@@ -10,9 +10,9 @@ var haikuFields = [
     placeholder: "Adjective that describes the noun",
     name: "adjective1", minlength: 2, required: true 
   },
-  { label: "Enter a verb ending in ...ing",  type: "text", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
+  { label: "Enter a verb ending in ...ing",  pattern: "\b\w+ing\b", type: "text", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
   { label: "Enter a new noun",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
-  { label: "Enter a verb ending in ...s",  type: "text", placeholder: "Verb ending in ...s", name: "verb2", minlength: 2, required: true },
+  { label: "Enter a verb ending in ...s",  pattern: "\b\w+s\b", type: "text", placeholder: "Verb ending in ...s", name: "verb2", minlength: 2, required: true },
 ];
 
 var limerickFields = [
@@ -53,43 +53,49 @@ buttons.forEach((button) => {
 });
 
 function generateform() {
-  const form = document.getElementById("dynamicForm");
-  form.innerHTML = ""; // Clear any existing content
-
-  if (selectedFields) {
-    selectedFields.forEach((field) => {
-    const label = document.createElement("label");
-    label.textContent = field.label;
-    label.setAttribute("for", field.name);
-    const input = document.createElement("input");
-      input.setAttribute("type", field.type);
-      input.setAttribute("placeholder", field.placeholder);
-      input.setAttribute("name", field.name);
-      if (field.required) {
-        input.setAttribute("required", "required");
-      }
-      if (field.minlength) {
-        input.setAttribute("minlength", field.minlength);
-      }
-      form.appendChild(input);
-      form.appendChild(document.createElement("br"));
-    });
-
-    const submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit"); // creating a submit button
-    submitButton.textContent = "Submit";
-    form.appendChild(submitButton);
-
-    // add an event listener to handle form submission
-    form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the default form submission
-      const formData = new FormData(form);
-      const formValues = Object.fromEntries(formData.entries());
-      document.getElementById('wordsOutput').innerHTML = formvalues;
-      console.log(formValues); 
-    });
+    const form = document.getElementById("dynamicForm");
+    form.innerHTML = ""; // Clear any existing content
+  
+    if (selectedFields) {
+      selectedFields.forEach((field) => {
+        const label = document.createElement("label");
+        label.textContent = field.label;
+        label.setAttribute("for", field.name);
+        const input = document.createElement("input");
+        input.setAttribute("type", field.type);
+        input.setAttribute("placeholder", field.placeholder);
+        input.setAttribute("name", field.name);
+        input.setAttribute("id", field.name); // add an id to the input field
+        if (field.required) {
+          input.setAttribute("required", "required");
+        }
+        if (field.minlength) {
+          input.setAttribute("minlength", field.minlength);
+        }
+        if (field.pattern) {
+            input.setAttribute("pattern", field.pattern);
+          }
+        form.appendChild(label); // add the label
+        form.appendChild(document.createElement("br"));
+        form.appendChild(input); // add the input
+        form.appendChild(document.createElement("br"));
+      });
+  
+      const submitButton = document.createElement("button");
+      submitButton.setAttribute("type", "submit"); // creating a submit button
+      submitButton.textContent = "Submit";
+      form.appendChild(submitButton);
+  
+      // add an event listener to handle form submission
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        const formData = new FormData(form);
+        const formValues = Object.fromEntries(formData.entries());
+        document.getElementById('wordsOutput').innerHTML = formValues; // fix the typo here
+        console.log(formValues); 
+      });
+    }
   }
-}
 
 
 // **Haiku Template**
