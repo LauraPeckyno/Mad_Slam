@@ -1,5 +1,11 @@
+// notes for the future: I'd like to set up local storage for this so you can save your slams. I don't have time to implement that. 
+// I have no idea what's wrong with the word based regex patterns. I can't seem to get them to trigger the right way. I've commented them out for the phrase-based answers.
+// The template literals could use some tweaks. Most of the generated poems are clunky 
+// I am not sure what else I could do with this apart from coming up with new poem styles and making the templates better.
+// maybe a battle option where saved poems could be rated and a winner declared?
+
 document.body.style.cursor = "url(https://www.pecknotes.com/handpoint2.cur), pointer"; 
-/// sets a custom cursor for the page (yep, I stole and image and made a cursor. yep, that's mickey's hand)
+/// sets a custom cursor for the page (yep, I borrowed an image and made a cursor. yep, that's mickey's hand)
 
 // declaring constants for the buttons
 const haikuBtn = document.getElementById("haikuBtn");
@@ -233,9 +239,11 @@ function generateform() {
     submitButton.textContent = "Submit";
     form.appendChild(submitButton); // appending the submit button to the form
 
+
     form.addEventListener("submit", function (event) {  // event listener for the submit button
         event.preventDefault(); // prevent default on the submit button
 
+        // it was at about this time I started to think the whole thing was a bad idea. I had no clue how to get this to work. My initial test of the concept was fine, but that was sending the values straight to a template literal underneath. This was so much more complex than it needed to be.
         const formData = new FormData(form);  // collecting the form data
         const formValues = Object.fromEntries(formData.entries());  //I had to look this one up and ask for help. This returns the key value pairs data and will convert the data to a JS object. the data is then stored in the formValues variable.
 
