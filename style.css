@@ -12,6 +12,14 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  h1 {
+    color: chartreuse;
+    font-size: 45px;
+  }
+  #instructTitle {
+    color: black;
+  }
 .headContainer {
     border-radius: 25px;
     display:flex;
@@ -78,25 +86,27 @@ p {
 }
 
 #form-Container {
-   
+    border: solid rgba(17, 154, 233, 0.171);
+    background-color: rgb(57, 117, 206);
+    border-radius: 25px;
     display: flex;
     justify-content: space-between;
     padding: 25px;
     width: 90%;
-    text-align: left;
-    display: block;
+    text-align: center;
+    display: none;
 }
 
 .dynamicForm {
     border: solid purple;
-    background-color: rgb(142, 195, 255);
+    background-color: rgb(18, 118, 233);
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
     padding: 25px;
     width: 90%;
     text-align: left;
-    display: none;
+    display: block;
 }
 
 #slamContainer {
@@ -226,8 +236,8 @@ button {
 }
 button:hover {
     border: solid rgba(0, 0, 0, 0.315);
-    color:white;
-    background-color: rgb(17, 154, 233);
+    color:black;
+    background-color: chartreuse;
     width: 128px;
     border-radius: 15px;
     height: 52px;

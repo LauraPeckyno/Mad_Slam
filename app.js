@@ -6,56 +6,159 @@ const iamBtn = document.getElementById("iamBtn");
 
 var haikuFields = [
   { poem: "HAIKU"},
-    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+  { label: "Enter a noun", 
+    title: "enter a noun", 
+    type: "text", 
+    placeholder: "Noun", 
+    name: "noun1", 
+    minlength: 2, 
+    required: true },
   { label: "Enter an adjective that describes that noun", 
+    title:"Enter an adjective that describes that noun", 
     type: "text",
     placeholder: "Adjective that describes the noun",
-    name: "adjective1", minlength: 2, required: true 
-  },
-  { label: "Enter a verb ending in ...ing",  pattern: ".*ing$", type: "text", title: "Please enter a verb ending in ...ing", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
-  { label: "Enter a new noun",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
-  { label: "Enter a verb ending in ...s",  pattern: ".*s$", type: "text", placeholder: "Verb ending in ...s", name: "verb2", minlength: 2, required: true },
+    name: "adjective1", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a verb ending in ...ing",  
+    title: "Please enter a verb ending in ...ing", 
+    type: "text", 
+    placeholder: "Verb ending in ...ing", 
+    name: "verb1", 
+    pattern: ".*ing$", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a new noun",  
+    title: "Enter a new noun", 
+    type: "text", 
+    placeholder: "New noun", 
+    name: "noun2", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a verb ending in ...s",  
+    title: "Enter a verb ending in ...s",
+    type: "text", 
+    placeholder: "Verb ending in ...s", 
+    name: "verb2", 
+    pattern: ".*s$", 
+    minlength: 2, 
+    required: true },
 ];
 //Haiku form: adjective, noun, ing verb. adjective, noun, adjective, noun
 
 var limerickFields = [
   {poem: "LIMERICK"},
-    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
-    { label: "Enter an adjective describing your noun",  type: "text", placeholder: "Adjective", name: "adjective", minlength: 2, required: true },
+    { label: "Enter a noun", 
+      title: "Enter a noun",
+      type: "text", 
+      placeholder: "Noun", 
+      name: "noun1", 
+      minlength: 2, 
+      required: true },
+    { label: "Enter an adjective describing your noun",  
+      title: "Enter an adjective describing your noun",
+      type: "text", 
+      placeholder: "Adjective", 
+      name: "adjective", 
+      minlength: 2, 
+      required: true },
     { label: "Enter a place (a city or country would work)", 
-    type: "text",
-    placeholder: "Place",
-    name: "place1", minlength: 2, required: true 
-  },
-  { label: "Enter a verb ending in ...ed",  pattern: ".*ed$", type: "text", title: "Please enter a verb ending in ...ed", placeholder: "Verb ending in ...ed", name: "verb1", minlength: 2, required: true },
+      title: "Enter a place (a city or country would work)", 
+      type: "text",
+      placeholder: "Place",
+      name: "place1", 
+      minlength: 2, 
+      required: true },
+    { label: "Enter a verb ending in ...ed",  
+      title: "Please enter a verb ending in ...ed", 
+      type: "text", 
+      placeholder: "Verb ending in ...ed", 
+      name: "verb1", 
+      pattern: ".*ed$",
+      minlength: 2, 
+      required: true },
  //Limerick form: noun, place, verb(ed), adjective
 ];
 
 var natureFields = [
   {poem: "NATURE"},
-    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+  { label: "Enter a noun", 
+    title: "Enter a noun", 
+    type: "text", 
+    placeholder: "Noun", 
+    name: "noun1", 
+    minlength: 2, 
+    required: true },
   { label: "Enter an adjective that describes that noun", 
+    title: "Enter an adjective that describes that noun", 
     type: "text",
     placeholder: "Adjective that describes the noun",
-    name: "adjective1", minlength: 2, required: true 
+    name: "adjective1", 
+    minlength: 2, 
+    required: true 
   },
-  { label: "Enter a verb ending in ...ing",  pattern: ".*ing$", type: "text", title: "Please enter a verb ending in ...ing", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
-  { label: "Enter a new noun (something you'd see in the sky)",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
-  { label: "Enter an adjective that relates to the sun",  type: "text", placeholder: "Adjective", name: "adjective2", minlength: 2, required: true },
+  { label: "Enter a verb ending in ...ing",  
+    title: "Please enter a verb ending in ...ing", 
+    type: "text", 
+    placeholder: "Verb ending in ...ing", 
+    name: "verb1", 
+    pattern: ".*ing$", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a new noun (something you'd see in the sky)",  
+    title: "Enter a new noun (something you'd see in the sky)",  
+    type: "text", 
+    placeholder: "New noun", 
+    name: "noun2", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter an adjective that relates to the sun",  
+    title: "Enter an adjective that relates to the sun",  
+    type: "text", 
+    placeholder: "Adjective", 
+    name: "adjective2", 
+    minlength: 2, 
+    required: true },
 ];
 //Nature form: noun, adjective, verb (ing), noun (something that flys), adjective (something that describes the sun)
 
 var iamFields = [
-  {poem: "I AM..."},
-    { label: "Enter two words about yourself", type: "text", placeholder: "Two words about me", pattern: "^\w+\s\w+$", name: "2words", minlength: 3, required: true },
-  { label: "Enter an adjective that describes that noun", 
+  { poem: "I AM..."},
+  { label: "Enter two words about yourself", 
+    type: "text", 
+    placeholder: "Two words about me", 
+    pattern: "^\w+\s\w+$", 
+    name: "2words", 
+    minlength: 3, 
+    required: true },
+  { label: "Enter up to 6 words that describe something you wonder about", 
     type: "text",
-    placeholder: "Adjective that describes the noun",
-    name: "adjective1", minlength: 2, required: true 
-  },
-  { label: "Enter a verb ending in ...ing",  pattern: ".*ing$", type: "text", title: "Please enter a verb ending in ...ing", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
-  { label: "Enter a new noun (something you'd see in the sky)",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
-  { label: "Enter an adjective that relates to the sun",  type: "text", placeholder: "Adjective", name: "adjective2", minlength: 2, required: true },
+    placeholder: "I wonder... (up to 6 words)",
+    name: "iwonder", 
+    pattern: "^(\b\w+\b\s*){0,6}$", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a noun (something you hear)",  
+    type: "text", 
+    title: "Please enter a word for a sound", 
+    placeholder: "I hear...", 
+    name: "sound", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a word for something you see",  
+    title: "Enter a word for something you see",  
+    type: "text", 
+    placeholder: "I see...", 
+    name: "isee", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a word or phrase for something you want",  
+    title: "Enter a word or phrase for something you want",  
+    type: "text", 
+    placeholder: "I want...", 
+    name: "iwant", 
+    minlength: 2, 
+    required: true },
 ];
 //      I am a _ (2 words to describe self)
 //      I wonder _ (something you are curious about)
@@ -79,18 +182,19 @@ buttons.forEach((button) => {
     generateform();
   });
 });
-
 function generateform() {
   const form = document.getElementById("dynamicForm");
   form.innerHTML = ""; // Clear any existing content
   const formContainer = document.getElementById("form-Container");
   formContainer.innerHTML = ""; // Clear any existing content
 
+
   if (selectedFields) {
     const poem = document.createElement("h1");
     poem.textContent = selectedFields[0].poem;
     poem.setAttribute("class", "permanent-marker-regular");
     formContainer.appendChild(poem);
+    formContainer.style.display="block";
 
     selectedFields.slice(1).forEach((field) => {
       const label = document.createElement("label");
@@ -110,25 +214,27 @@ function generateform() {
       if (field.pattern) {
         input.setAttribute("pattern", field.pattern);
       }
-      formContainer.appendChild(label); // add the label
-      formContainer.appendChild(document.createElement("br"));
-      formContainer.appendChild(input); // add the input
-      formContainer.appendChild(document.createElement("br"));
+      form.appendChild(label); // add the label to the form
+      form.appendChild(document.createElement("br"));
+      form.appendChild(input); // add the input to the form
+      form.appendChild(document.createElement("br"));
     });
 
     const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit"); // creating a submit button
     submitButton.textContent = "Submit";
-    formContainer.appendChild(submitButton);
+    form.appendChild(submitButton);
 
     // add an event listener to handle form submission
-    formContainer.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function (event) {
       event.preventDefault(); // Prevent the default form submission
       const formData = new FormData(form);
       const formValues = Object.fromEntries(formData.entries());
       // document.getElementById('wordsOutput').innerHTML = formValues; 
       console.log(formValues); 
     });
+
+    formContainer.appendChild(form); // append the form to the form container
   }
 }
 
