@@ -110,7 +110,7 @@ p {
 } */
 
 #slamContainer {
-    border: solid rgb(209, 87, 16);
+    border: solid rgba(209, 87, 16, 0.363);
     background-color: white;
     border-radius: 25px;
     display: flex;
@@ -234,10 +234,11 @@ button {
     font-size: 25px;
     margin: 5px;
 }
+
 button:hover {
-    border: solid rgba(0, 0, 0, 0.315);
+    border: solid rgb(0, 0, 0);
     color:black;
-    background-color: chartreuse;
+    background-color: rgb(228, 163, 25);
     width: 155px;
     border-radius: 15px;
     height: 70px;
@@ -260,6 +261,6 @@ label {
   
 #printBtn {
     color:black;
-
+    width: 100%;
     display:none;
   }
