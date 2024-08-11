@@ -42,11 +42,22 @@ var natureFields = [
 //Nature form: noun, adjective, verb (ing), noun (something that flys), adjective (something that describes the sun)
 
 var iamFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter an adjective", name: "adjective", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter a verb", name: "verb", minlength: 2, required: true },
-  { type: "text", placeholder: "Enter a phrase", name: "phrase", minlength: 2, required: true },
+    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+  { label: "Enter an adjective that describes that noun", 
+    type: "text",
+    placeholder: "Adjective that describes the noun",
+    name: "adjective1", minlength: 2, required: true 
+  },
+  { label: "Enter a verb ending in ...ing",  pattern: ".*ing$", type: "text", title: "Please enter a verb ending in ...ing", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
+  { label: "Enter a new noun (something you'd see in the sky)",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
+  { label: "Enter an adjective that relates to the sun",  type: "text", placeholder: "Adjective", name: "adjective2", minlength: 2, required: true },
 ];
+//      I am a _ (2 words to describe self)
+//      I wonder _ (something you are curious about)
+//      I hear _ (a sound)
+//      I see _ (a sight)
+//      I want _ (something you want)
+//      I am _ (repeat of first line)
 
 var selectedFields; // Variable to store the selected array
 
@@ -103,9 +114,10 @@ function generateform() {
         event.preventDefault(); // Prevent the default form submission
         const formData = new FormData(form);
         const formValues = Object.fromEntries(formData.entries());
-        document.getElementById('wordsOutput').innerHTML = formValues; 
+        // document.getElementById('wordsOutput').innerHTML = formValues; 
         console.log(formValues); 
       });
+
     }
   }
 
