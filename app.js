@@ -1,4 +1,8 @@
-document.body.style.cursor = "url(http://www.pecknotes.com/handpoint2.cur), pointer";
+document.body.style.cursor = "url(http://www.pecknotes.com/handpoint2.cur), pointer"; 
+/// sets a custom cursor for the page (yep, I stole and image and made a cursor. yep, that's mickey's hand)
+
+
+// declaring constants for the buttons
 const haikuBtn = document.getElementById("haikuBtn");
 const limerickBtn = document.getElementById("limerickBtn");
 const natureBtn = document.getElementById("natureBtn");
@@ -55,35 +59,35 @@ var haikuFields = [
 
 var limerickFields = [
   {poem: "LIMERICK"},
-    { label: "Enter a noun", 
-      title: "Enter a noun",
-      type: "text", 
-      placeholder: "Noun", 
-      name: "noun1", 
-      minlength: 2, 
-      required: true },
-    { label: "Enter an adjective describing your noun",  
-      title: "Enter an adjective describing your noun",
-      type: "text", 
-      placeholder: "Adjective", 
-      name: "adjective", 
-      minlength: 2, 
-      required: true },
-    { label: "Enter a place (a city or country would work)", 
-      title: "Enter a place (a city or country would work)", 
-      type: "text",
-      placeholder: "Place",
-      name: "place1", 
-      minlength: 2, 
-      required: true },
-    { label: "Enter a verb ending in ...ed",  
-      title: "Please enter a verb ending in ...ed", 
-      type: "text", 
-      placeholder: "Verb ending in ...ed", 
-      name: "verb1", 
-      pattern: ".*ed$",
-      minlength: 2, 
-      required: true },
+  { label: "Enter a noun", 
+    title: "Enter a noun",
+    type: "text", 
+    placeholder: "Noun", 
+    name: "noun1", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter an adjective describing your noun",  
+    title: "Enter an adjective describing your noun",
+    type: "text", 
+    placeholder: "Adjective", 
+    name: "adjective", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a place (a city or country would work)", 
+    title: "Enter a place (a city or country would work)", 
+    type: "text",
+    placeholder: "Place",
+    name: "place1", 
+    minlength: 2, 
+    required: true },
+  { label: "Enter a verb ending in ...ed",  
+    title: "Please enter a verb ending in ...ed", 
+    type: "text", 
+    placeholder: "Verb ending in ...ed", 
+    name: "verb1", 
+    pattern: ".*ed$",
+    minlength: 2, 
+    required: true },
 ];
 
 var natureFields = [
@@ -169,10 +173,10 @@ var iamFields = [
 // the template literals for the poem outputs
 // nature
 const naturePoem = `
-The ${adjective1} ${noun1} sways in the breeze,<br>
-${verb1} softly among the trees.<br>
-With a ${noun2} in the sky,<br>
-I watch it fly high,<br>
+The ${adjective1} ${noun1} sways in the breeze, <br>
+${verb1} softly among the trees. <br>
+With a ${noun2} in the sky, <br>
+I watch it fly high, <br>
 as the ${adjective2} sun sets with ease.
 `; 
 
@@ -180,30 +184,31 @@ as the ${adjective2} sun sets with ease.
 const iamPoem = `
 I am ${twowords}. <br>
 I wonder ${iwonder}. <br>
-I hear ${sound}.<br>
-I see ${isee}.<br>
-I want ${iwant}.<br>
+I hear ${sound}. <br>
+I see ${isee}. <br>
+I want ${iwant}. <br>
 I am ${twowords}.
 `;
 
 // limerick
 const limerickPoem = `
-There once was a ${noun1} from ${place}<br>
-Who ${verb1} with a funny face<br>
-The ${adjective1} ${noun1} 
-${verb1} around
+There once was a ${noun1} from ${place1} <br>
+Who ${verb1} with a funny face <br>
+The ${adjective} ${noun1} <br>
+  ${verb1} around <br>
 And left without a trace.
 `;
 
 // haiku
 const haikuPoem = `
-An ${adjective1} ${noun1}<br>
+An ${adjective1} ${noun1} <br>
 ${verb1} through the ${adjective2} ${noun2} <br>
-the ${adjective1} ${noun1} sings
+the ${adjective1} ${noun1} ${verb2}
 `;
 
 var selectedFields; // Variable to store the selected arrays
 
+// attaching the poem style button ids to the button constants
 const buttons = [
   { id: "haikuBtn", fields: haikuFields },
   { id: "limerickBtn", fields: limerickFields },
@@ -218,6 +223,7 @@ buttons.forEach((button) => {   // event listeners for the poem style buttons
   });
 });
 
+// fucntion for creating the dynamic forms
 function generateform() {
   const form = document.getElementById("dynamicForm");
   form.innerHTML = ""; // Clear any existing content
@@ -301,6 +307,10 @@ function generateform() {
       formContainer.appendChild(form); // append the form to the form container
   }
 }
+
+
+/////////////////////////////////////////////////
+///// notes for the poem templates /////////////
 
 // **Haiku Template**
 //      An adjective noun
