@@ -176,65 +176,94 @@ const buttons = [
   { id: "iamBtn", fields: iamFields },
 ];
 
-buttons.forEach((button) => {
+buttons.forEach((button) => {   // event listeners for the poem style buttons
   document.getElementById(button.id).addEventListener("click", function () {
     selectedFields = button.fields;
     generateform();
   });
 });
+
 function generateform() {
   const form = document.getElementById("dynamicForm");
   form.innerHTML = ""; // Clear any existing content
+
   const formContainer = document.getElementById("form-Container");
   formContainer.innerHTML = ""; // Clear any existing content
 
+  const slamContainer = document.getElementById("slamContainer");
+  slamContainer.innerHTML = ""; // Clear any existing content
 
   if (selectedFields) {
-    const poem = document.createElement("h1");
-    poem.textContent = selectedFields[0].poem;
-    poem.setAttribute("class", "permanent-marker-regular");
-    formContainer.appendChild(poem);
-    formContainer.style.display="block";
+      const poem = document.createElement("h1"); // creating a "poem type" title for the form
+      poem.textContent = selectedFields[0].poem;
+      poem.setAttribute("class", "permanent-marker-regular"); // sets the font style for the h1
+      formContainer.appendChild(poem); // adds the form type as an h1 element to the form container
+      formContainer.style.display = "block"; // showing the form container
+      slamContainer.style.display = "none"; // hiding the output container
 
-    selectedFields.slice(1).forEach((field) => {
-      const label = document.createElement("label");
-      label.textContent = field.label;
-      label.setAttribute("for", field.name);
-      const input = document.createElement("input");
-      input.setAttribute("type", field.type);
-      input.setAttribute("placeholder", field.placeholder);
-      input.setAttribute("name", field.name);
-      input.setAttribute("id", field.name); // add an id to the input field
-      if (field.required) {
-        input.setAttribute("required", "required");
-      }
-      if (field.minlength) {
-        input.setAttribute("minlength", field.minlength);
-      }
-      if (field.pattern) {
-        input.setAttribute("pattern", field.pattern);
-      }
-      form.appendChild(label); // add the label to the form
-      form.appendChild(document.createElement("br"));
-      form.appendChild(input); // add the input to the form
-      form.appendChild(document.createElement("br"));
-    });
+      selectedFields.slice(1).forEach((field) => { // slice out the poem type value
+          const label = document.createElement("label");
+          label.textContent = field.label;
+          label.setAttribute("for", field.name);
 
-    const submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit"); // creating a submit button
-    submitButton.textContent = "Submit";
-    form.appendChild(submitButton);
+          const input = document.createElement("input");
+          input.setAttribute("type", field.type);
+          input.setAttribute("placeholder", field.placeholder);
+          input.setAttribute("name", field.name);
+          input.setAttribute("id", field.name); // add an id to the input field
 
-    // add an event listener to handle form submission
-    form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the default form submission
-      const formData = new FormData(form);
-      const formValues = Object.fromEntries(formData.entries());
-      // document.getElementById('wordsOutput').innerHTML = formValues; 
-      console.log(formValues); 
-    });
+          if (field.required) {
+              input.setAttribute("required", "required");
+          }
+          if (field.minlength) {
+              input.setAttribute("minlength", field.minlength);
+          }
+          if (field.pattern) {
+              input.setAttribute("pattern", field.pattern);
+          }
 
-    formContainer.appendChild(form); // append the form to the form container
+          form.appendChild(label); // add the label to the form
+          form.appendChild(document.createElement("br"));
+          form.appendChild(input); // add the input to the form
+          form.appendChild(document.createElement("br"));
+      });
+
+      const submitButton = document.createElement("button");
+      submitButton.setAttribute("type", "submit"); // creating a submit button
+      submitButton.textContent = "Submit";
+      form.appendChild(submitButton);
+
+      // add an event listener to handle form submission
+      form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+          const formData = new FormData(form);
+          const formValues = Object.fromEntries(formData.entries());
+
+          // Create a div to hold the output
+          const outputDiv = document.createElement("div");
+          // Add the poem text as an h1
+          const outputH1 = document.createElement("h1");
+          outputH1.textContent = poem.textContent;
+          outputH1.setAttribute("class", "permanent-marker-regular");
+          outputDiv.appendChild(outputH1);
+
+          // Add the form values as paragraphs
+          Object.keys(formValues).forEach((key) => {
+              const paragraph = document.createElement("p");
+              paragraph.textContent = `${key}: ${formValues[key]}`;
+              outputDiv.appendChild(paragraph);
+          });
+
+          // Clear the slam container and append the output
+          slamContainer.innerHTML = "";
+          slamContainer.appendChild(outputDiv);
+
+          // Show the slam container and hide the form container
+          slamContainer.style.display = "block";
+          formContainer.style.display = "none";
+      });
+
+      formContainer.appendChild(form); // append the form to the form container
   }
 }
 

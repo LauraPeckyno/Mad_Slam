@@ -96,7 +96,7 @@ p {
     text-align: center;
     display: none;
 }
-
+/* 
 .dynamicForm {
     border: solid purple;
     background-color: rgb(18, 118, 233);
@@ -107,7 +107,7 @@ p {
     width: 90%;
     text-align: left;
     display: block;
-}
+} */
 
 #slamContainer {
     border: solid yellow;
