@@ -52,7 +52,7 @@ p {
 }
 
 .instructionsContainer {
-    border: solid blue;
+    border: solid rgba(17, 154, 233, 0.171);
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -77,6 +77,16 @@ p {
 
 }
 
+.form-container {
+   
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    width: 90%;
+    text-align: left;
+    display: block;
+}
+
 .dynamicForm {
     border: solid purple;
     background-color: rgb(142, 195, 255);
@@ -96,10 +106,12 @@ p {
     height: 20vh;
     display: flex;
     justify-content: space-between;
-    width: 100%
+    width: 100%;
+    display:none;
 }
+
 #haikuBtn {
-    border: solid black;
+    border: solid rgba(0, 0, 0, 0.315);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +134,7 @@ p {
 }
 
 #iamBtn {
-    border: solid black;
+    border: solid rgba(0, 0, 0, 0.315);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,7 +157,7 @@ p {
 }
 
 #limerickBtn {
-    border: solid black;
+    border: solid rgba(0, 0, 0, 0.315);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,7 +180,7 @@ p {
 }
 
 #natureBtn {
-    border: solid black;
+    border: solid rgba(0, 0, 0, 0.315);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,106 +208,31 @@ p {
     cursor: url(http://www.pecknotes.com/handclench.cur),auto;
 }
 
-
-
-.form-container {
-    position: absolute;
-    background: #eee;
-    display: flex;
-    width: 700px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
-    user-select: none;
-  }
-  
-  .form-container > div {
-    width: 300px;
-    margin: 10px;
-    padding: 5px;
-  }
-  
-  .form-container h1 {
-    color: #0097a7;
-    margin: 0px 5px;
-    padding: 5px;
-    border-bottom: 1px solid lightgray;
-  }
-  
-  .form-container form {
-    position: relative;
-    width: 100%;
+input {
+    font-size: 25px;
+    background-color: white;
     padding: 5px 10px;
-  }
-  
-  .form-container p {
-    padding: 5px 10px;
-    margin: 2.5px 0px;
-  }
-  
-  .form-container input[type="text"],
-  .form-container input[type="email"],
-  .form-container input[type="password"] {
-    width: 250px;
-    padding: 7px 7px 7px 40px;
-    margin: 5px 0px;
-    outline: 1px solid #888;
-    border: 0px solid #0000;
+    border: solid rgba(0, 0, 0, 0.253);
     border-radius: 5px;
   }
-  
-  .form-container input[type="text"]:focus,
-  .form-container input[type="email"]:focus,
-  .form-container input[type="password"]:focus {
-    outline: 2px solid #ffab40;
-  }
-  
-  .form-container input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  .flex-row {
-    display: flex;
-    align-items: center;
-  }
-  
-  .form-container label {
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .form-container input[type="submit"] {
-    margin-left: auto;
-    font-weight: bold;
-    padding: 10px;
-    border: 1px solid #888;
-    border-radius: 5px;
-    background: #55ecfc;
-    cursor: pointer;
-  }
-  
-  .form-container input[type="submit"]:hover {
-    background: #ffab40;
-  }
-  
-  .form-container .input-icon {
-    position: absolute;
-    left: 10px;
-    margin: 5px 0px;
-    width: 30px;
-    height: 29px;
-    background: #ddd;
-    outline: 1px solid #888;
-    border-right: 0px solid #0000;
-    border-radius: 5px 0px 0px 5px;
-    text-align: center;
-    line-height: 29px;
-  }
-  
-  .form-container input:focus + .input-icon {
-    color: #ffab40;
-    outline: 2px solid #ffab40;
-    margin: 5px 0px;
-  }
+
+button {
+    border: solid rgba(0, 0, 0, 0.315);
+    background-color: rgb(255, 255, 255);
+    width: 125px;
+    border-radius: 15px;
+    height: 50px;
+    color: black;
+    font-size: 25px;
+    margin: 5px;
+}
+button:hover {
+    border: solid rgba(0, 0, 0, 0.315);
+    color:white;
+    background-color: rgb(17, 154, 233);
+    width: 128px;
+    border-radius: 15px;
+    height: 52px;
+    margin: 5px;
+}
   

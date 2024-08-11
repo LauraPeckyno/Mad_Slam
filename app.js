@@ -4,36 +4,36 @@ const natureBtn = document.getElementById("natureBtn");
 const iamBtn = document.getElementById("iamBtn");
 
 var haikuFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun1" },
-  {
+    { label: "Enter a noun", type: "text", placeholder: "Noun", name: "noun1", minlength: 2, required: true },
+  { label: "Enter an adjective that describes that noun", 
     type: "text",
-    placeholder: "Enter an adjective that describes that noun",
-    name: "adjective1",
+    placeholder: "Adjective that describes the noun",
+    name: "adjective1", minlength: 2, required: true 
   },
-  { type: "text", placeholder: "Enter a verb ending in ...ing", name: "verb1" },
-  { type: "text", placeholder: "Enter a new noun", name: "noun2" },
-  { type: "text", placeholder: "Enter a verb ending in ...s", name: "verb2" },
+  { label: "Enter a verb ending in ...ing",  type: "text", placeholder: "Verb ending in ...ing", name: "verb1", minlength: 2, required: true },
+  { label: "Enter a new noun",  type: "text", placeholder: "New noun", name: "noun2", minlength: 2, required: true },
+  { label: "Enter a verb ending in ...s",  type: "text", placeholder: "Verb ending in ...s", name: "verb2", minlength: 2, required: true },
 ];
 
 var limerickFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun" },
-  { type: "text", placeholder: "Enter an adjective", name: "adjective" },
-  { type: "text", placeholder: "Enter a verb", name: "verb" },
-  { type: "text", placeholder: "Enter a phrase", name: "phrase" },
+  { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter an adjective", name: "adjective", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter a verb", name: "verb", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter a phrase", name: "phrase", minlength: 2, required: true },
 ];
 
 var natureFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun" },
-  { type: "text", placeholder: "Enter an adjective", name: "adjective" },
-  { type: "text", placeholder: "Enter a verb", name: "verb" },
-  { type: "text", placeholder: "Enter a phrase", name: "phrase" },
+  { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter an adjective", name: "adjective", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter a verb", name: "verb", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter a phrase", name: "phrase", minlength: 2, required: true },
 ];
 
 var iamFields = [
-  { type: "text", placeholder: "Enter a noun", name: "noun" },
-  { type: "text", placeholder: "Enter an adjective", name: "adjective" },
-  { type: "text", placeholder: "Enter a verb", name: "verb" },
-  { type: "text", placeholder: "Enter a phrase", name: "phrase" },
+  { type: "text", placeholder: "Enter a noun", name: "noun", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter an adjective", name: "adjective", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter a verb", name: "verb", minlength: 2, required: true },
+  { type: "text", placeholder: "Enter a phrase", name: "phrase", minlength: 2, required: true },
 ];
 
 var selectedFields; // Variable to store the selected array
@@ -58,16 +58,25 @@ function generateform() {
 
   if (selectedFields) {
     selectedFields.forEach((field) => {
-      const input = document.createElement("input");
+    const label = document.createElement("label");
+    label.textContent = field.label;
+    label.setAttribute("for", field.name);
+    const input = document.createElement("input");
       input.setAttribute("type", field.type);
       input.setAttribute("placeholder", field.placeholder);
       input.setAttribute("name", field.name);
+      if (field.required) {
+        input.setAttribute("required", "required");
+      }
+      if (field.minlength) {
+        input.setAttribute("minlength", field.minlength);
+      }
       form.appendChild(input);
       form.appendChild(document.createElement("br"));
     });
 
     const submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit"); // Set button type to 'submit'
+    submitButton.setAttribute("type", "submit"); // creating a submit button
     submitButton.textContent = "Submit";
     form.appendChild(submitButton);
 
