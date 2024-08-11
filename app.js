@@ -4,6 +4,7 @@ const limerickBtn = document.getElementById("limerickBtn");
 const natureBtn = document.getElementById("natureBtn");
 const iamBtn = document.getElementById("iamBtn");
 
+// the arrays for the form fields
 var haikuFields = [
   { poem: "HAIKU"},
   { label: "Enter a noun", 
@@ -35,6 +36,13 @@ var haikuFields = [
     name: "noun2", 
     minlength: 2, 
     required: true },
+  { label: "Enter an adjective that describes that second noun", 
+    title:"Enter an adjective that describes the new noun", 
+    type: "text",
+    placeholder: "Adjective that describes the noun",
+    name: "adjective2", 
+    minlength: 2, 
+    required: true },
   { label: "Enter a verb ending in ...s",  
     title: "Enter a verb ending in ...s",
     type: "text", 
@@ -44,7 +52,6 @@ var haikuFields = [
     minlength: 2, 
     required: true },
 ];
-//Haiku form: adjective, noun, ing verb. adjective, noun, adjective, noun
 
 var limerickFields = [
   {poem: "LIMERICK"},
@@ -77,7 +84,6 @@ var limerickFields = [
       pattern: ".*ed$",
       minlength: 2, 
       required: true },
- //Limerick form: noun, place, verb(ed), adjective
 ];
 
 var natureFields = [
@@ -120,7 +126,6 @@ var natureFields = [
     minlength: 2, 
     required: true },
 ];
-//Nature form: noun, adjective, verb (ing), noun (something that flys), adjective (something that describes the sun)
 
 var iamFields = [
   { poem: "I AM..."},
@@ -128,7 +133,7 @@ var iamFields = [
     type: "text", 
     placeholder: "Two words about me", 
     pattern: "^\w+\s\w+$", 
-    name: "2words", 
+    name: "twowords", 
     minlength: 3, 
     required: true },
   { label: "Enter up to 6 words that describe something you wonder about", 
@@ -160,14 +165,44 @@ var iamFields = [
     minlength: 2, 
     required: true },
 ];
-//      I am a _ (2 words to describe self)
-//      I wonder _ (something you are curious about)
-//      I hear _ (a sound)
-//      I see _ (a sight)
-//      I want _ (something you want)
-//      I am _ (repeat of first line)
 
-var selectedFields; // Variable to store the selected array
+// the template literals for the poem outputs
+// nature
+const naturePoem = `
+The ${adjective1} ${noun1} sways in the breeze,<br>
+${verb1} softly among the trees.<br>
+With a ${noun2} in the sky,<br>
+I watch it fly high,<br>
+as the ${adjective2} sun sets with ease.
+`; 
+
+// I am...
+const iamPoem = `
+I am ${twowords}. <br>
+I wonder ${iwonder}. <br>
+I hear ${sound}.<br>
+I see ${isee}.<br>
+I want ${iwant}.<br>
+I am ${twowords}.
+`;
+
+// limerick
+const limerickPoem = `
+There once was a ${noun1} from ${place}<br>
+Who ${verb1} with a funny face<br>
+The ${adjective1} ${noun1} 
+${verb1} around
+And left without a trace.
+`;
+
+// haiku
+const haikuPoem = `
+An ${adjective1} ${noun1}<br>
+${verb1} through the ${adjective2} ${noun2} <br>
+the ${adjective1} ${noun1} sings
+`;
+
+var selectedFields; // Variable to store the selected arrays
 
 const buttons = [
   { id: "haikuBtn", fields: haikuFields },
@@ -274,11 +309,7 @@ function generateform() {
 //
 //Haiku form: adjective, noun, ing verb. adjective, noun, adjective, noun
 
-//     const limerickPoem = `
-//     The ${adjective1} ${noun1}<br>
-//     ${verb1} across the ${noun2}<br>
-//     ${adjective1} ${noun1} ${verb2}
-// `;
+
 // **Limerick Template**
 //      There once was a noun from place
 //      Who verb-ed with a funny face
