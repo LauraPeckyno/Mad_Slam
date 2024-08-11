@@ -278,18 +278,20 @@ function generateform() {
         slamContainer.style.display = "block";
         formContainer.style.display = "none";
 
+        const printButton = document.createElement("button");
+        printButton.textContent = "Print!";
+        printButton.addEventListener("click", function() {
+          window.print();
+        });
+
+        printBtn.appendChild(printButton);
+        printBtn.style.display = "block";
     });
 
-    const printButton = document.createElement("button");
-    printButton.textContent = "Print SLAM!";
-    printButton.addEventListener("click", function() {
-      window.print();
-    });
-
-    printBtn.appendChild(printButton);
     formContainer.appendChild(form);
     formContainer.style.display = "block";
     slamContainer.style.display = "none";
+    printBtn.style.display = "none"; // Hide the print button initially
   }
 }
 
